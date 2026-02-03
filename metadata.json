@@ -1,0 +1,5 @@
+{
+  "name": "منصة ثائر الالكترونية ",
+  "description": "A tool to convert Moodle XML question exports into a printable exam paper with header, questions, and answer keys.",
+  "requestFramePermissions": []
+}

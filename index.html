@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>منصة ثائر مصلح ابو قبيطة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <style>
+      body { font-family: 'Tajawal', sans-serif; margin: 0; padding: 0; background-color: #f3f4f6; }
+      
+      @media screen {
+        .page-container {
+          /* Screen-only styles for the A4 paper look */
+          width: 210mm;
+          min-height: 297mm;
+          padding: 25mm 20mm;
+          margin: 2rem auto;
+          box-sizing: border-box;
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+      }
+      
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      .answer-sheet-columns {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 2rem;
+      }
+      .answer-sheet-table-container {
+          break-inside: avoid;
+          page-break-inside: avoid;
+      }
+
+      .teacher-answer-sheet-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 0.5rem;
+      }
+      .answer-sheet-item {
+          break-inside: avoid;
+          page-break-inside: avoid;
+          width: 100%;
+          background-color: #f9fafb;
+          border: 1px solid #eee;
+          padding: 6px;
+          margin-bottom: 6px;
+          border-radius: 6px;
+          min-width: 0;
+      }
+      
+      .printable-long-text {
+          display: block;
+          width: 100%;
+          text-align: right;
+          overflow-wrap: break-word;
+          word-break: break-word;
+      }
+
+      @media print, .pdf-export {
+        * {
+          box-sizing: border-box;
+        }
+
+        @page { 
+          size: A4;
+          margin: 0;
+        }
+        
+        body, html {
+            background: #fff !important;
+            width: auto !important;
+            height: auto !important;
+        }
+        
+        .print-area {
+            max-width: none !important;
+            margin: 0 !important;
+            width: 100% !important;
+        }
+
+        .no-print, 
+        .no-export { 
+          display: none !important; 
+        }
+
+        .page-container {
+            width: 100% !important;
+            height: auto !important;
+            min-height: initial !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+            border: none !important;
+            background: transparent !important;
+        }
+        
+        .answer-sheet-columns {
+            display: block;
+            column-count: 2;
+            column-gap: 2rem;
+        }
+        .answer-sheet-table-container {
+            margin-bottom: 2rem;
+        }
+
+        .exam-header, .question-group-title {
+            page-break-after: avoid !important;
+            break-after: avoid !important;
+        }
+        
+        .question-item, .break-inside-avoid {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        .columns-2 .question-item {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .student-answer-sheet-page,
+        .teacher-answer-sheet-page,
+        .force-page-break {
+            page-break-before: always !important;
+            break-before: page !important;
+        }
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.run/@google/genai",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.1/package/xlsx.mjs",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "vite": "https://aistudiocdn.com/vite@^7.2.7",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.2",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "mammoth": "https://aistudiocdn.com/mammoth@^1.11.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-100 text-gray-900">
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
